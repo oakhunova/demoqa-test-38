@@ -10,6 +10,7 @@ public class PracticeFormWithPageObjectsTests extends TestBase{
     @Test
     void fillFormTest() {
         practiceFormPage.openPage()
+                .removeBanner()
                 .setFirstName("Alex")
                 .setLastName("Ivanov")
                 .setUserEmail("test7@mail.com")
@@ -40,6 +41,7 @@ public class PracticeFormWithPageObjectsTests extends TestBase{
     @Test
     void fillRequiredFieldsTest() {
         practiceFormPage.openPage()
+                .removeBanner()
                 .setFirstName("Alex")
                 .setLastName("Ivanov")
                 .setGender("Male")
@@ -52,6 +54,7 @@ public class PracticeFormWithPageObjectsTests extends TestBase{
     @Test
     void invalidMobileNumberTest() {
         practiceFormPage.openPage()
+                .removeBanner()
                 .setFirstName("Alex")
                 .setLastName("Ivanov")
                 .setGender("Male")
