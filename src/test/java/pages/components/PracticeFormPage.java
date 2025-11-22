@@ -1,10 +1,6 @@
-package pages;
+package pages.components;
 
 import com.codeborne.selenide.SelenideElement;
-import com.github.javafaker.Faker;
-import pages.components.CalendarComponent;
-import pages.components.CheckResultComponent;
-import pages.components.NegativeTestCheckResultComponent;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -128,53 +124,5 @@ public class PracticeFormPage {
     public PracticeFormPage verifyResultForNegativeTest() {
         negativeTestCheckResultComponent.negativeTestCheckResult();
         return this;
-    }
-
-    public static class FakeData {
-        private static final Faker faker = new Faker();
-        public static final String firstName = faker.name().firstName();
-        public static final String lastName = faker.name().lastName();
-        public static final String fullName = firstName + " " + lastName;
-        public static final String userEmail = faker.internet().emailAddress();
-        public static final String gender = faker.options().option("Male", "Female", "Other");
-        public static final String phoneNumber = faker.phoneNumber().subscriberNumber(10);
-        public static final String phoneNumberNegative = faker.phoneNumber().subscriberNumber(3);
-        public static final String birthDay = String.format("%02d", faker.number().numberBetween(1, 28));
-        public static final String birthMonth = faker.options().option(
-                "January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December");
-        public static final String birthYear = String.valueOf(faker.number().numberBetween(1900, 2100));
-        public static final String fullBirthDate = birthDay + " " + birthMonth + "," + birthYear;
-        public static final String[] subjects = {"Math", "Arts", "Social Studies", "Economics", "Hindi"};
-        public static final String subject = faker.options().option(subjects);
-        private static final String[] hobbies = {"Sports", "Reading", "Music"};
-        public static final String randomHobby = faker.options().option(hobbies);
-        private static final String[] pictureFiles = {
-                "Cat.jpg", "Cat with hat.jpg", "Beach.jpg", "Skateboarder.jpg"};
-        public static final String randomPicture = faker.options().option(pictureFiles);
-        private static final String[] getStates = {
-                "NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
-        public static final String randomState = faker.options().option(getStates);
-
-        public static String getRandomCityForState(String state) {
-        switch (state) {
-            case "NCR" -> {
-                return FakeData.faker.options().option("Delhi", "Gurgaon", "Noida");
-            }
-            case "Uttar Pradesh" -> {
-                return FakeData.faker.options().option("Agra", "Lucknow", "Merrut");
-            }
-            case "Haryana" -> {
-                return FakeData.faker.options().option("Karnal", "Panipat");
-            }
-            case "Rajasthan" -> {
-                return FakeData.faker.options().option("Jaipur", "Jaiselmer");
-            }
-            default -> {
-                return ("Delhi");
-            }
-        }
-    }
-        public static final String streetAddress = faker.address().streetAddress();
     }
 }
