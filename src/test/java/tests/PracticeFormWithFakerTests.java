@@ -1,16 +1,25 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-import pages.FakeData;
+import utils.FakeData;
 import pages.components.PracticeFormPage;
+import org.junit.jupiter.api.BeforeEach;
 
 public class PracticeFormWithFakerTests extends TestBase{
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
-    FakeData fakeData = new FakeData();
-    String state = fakeData.randomState;
-    String city = fakeData.getRandomCityForState(state);
-    String fullCityState = state + " " + city;
+    private FakeData fakeData;
+    private String state;
+    private String city;
+    private String fullCityState;
+
+    @BeforeEach
+    void setUpFakeData() {
+        fakeData = new FakeData();
+        state = fakeData.randomState;
+        city = fakeData.getRandomCityForState(state);
+        fullCityState = state + " " + city;
+    }
 
     @Test
     void fillFormTest() {
