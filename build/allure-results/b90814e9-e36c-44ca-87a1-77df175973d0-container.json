@@ -1,0 +1,1 @@
+{"uuid":"b90814e9-e36c-44ca-87a1-77df175973d0","name":"QAGuruTest","children":["e15af857-e9c6-47e5-9e05-3d308ffc2004"],"befores":[{"name":"setupEnvironment","status":"passed","stage":"finished","steps":[],"attachments":[],"parameters":[],"start":1764441573278,"stop":1764441573308}],"afters":[],"start":1764441573192,"stop":1764441593092}
