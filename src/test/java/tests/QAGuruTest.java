@@ -12,19 +12,12 @@ import com.codeborne.selenide.ElementsCollection;
 public class QAGuruTest {
     @BeforeAll
     static void setupEnvironment() {
-//        Configuration.browserSize = "1920x1080";
-//        Configuration.baseUrl = "https://demoqa.com";
-//        Configuration.pageLoadStrategy = "eager";
-        Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
-        Configuration.timeout = 10000;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-
-
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.pageLoadStrategy = "eager";
     }
 
     @Test
-    @Tag("demoqa")
     void fillFormTest() {
         open("/automation-practice-form");
         executeJavaScript("$('footer').remove();");
