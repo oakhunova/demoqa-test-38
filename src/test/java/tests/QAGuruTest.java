@@ -2,6 +2,7 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -11,13 +12,19 @@ import com.codeborne.selenide.ElementsCollection;
 public class QAGuruTest {
     @BeforeAll
     static void setupEnvironment() {
-        Configuration.browserSize = "1920x1080";
+//        Configuration.browserSize = "1920x1080";
+//        Configuration.baseUrl = "https://demoqa.com";
+//        Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
+        Configuration.browserSize = "1920x1080";
+        Configuration.timeout = 10000;
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
 
     }
 
     @Test
+    @Tag("demoqa")
     void fillFormTest() {
         open("/automation-practice-form");
         executeJavaScript("$('footer').remove();");

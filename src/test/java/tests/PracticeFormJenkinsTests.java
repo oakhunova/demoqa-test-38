@@ -1,17 +1,19 @@
 package tests;
 
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.components.PracticeFormPage;
 import static io.qameta.allure.Allure.step;
 
-public class PracticeFormJenkinsTests extends TestBase {
+public class PracticeFormJenkinsTests extends TestBase{
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
 
     @Test
-    @Tag("demoqa")
-    void fillFormTest() {
+    //@Tag("demoqa")
+    void fillFormTest () {
         step("Open form", () -> {
             practiceFormPage.openPage()
                     .removeBanner();
@@ -47,43 +49,43 @@ public class PracticeFormJenkinsTests extends TestBase {
         });
     }
 
-        @Test
-        @Tag("demoqa")
-        void fillRequiredFieldsTest () {
-            step("Open form", () -> {
+    @Test
+    //@Tag("demoqa")
+    void fillRequiredFieldsTest () {
+        step("Open form", () -> {
             practiceFormPage.openPage()
                     .removeBanner();
-            });
-            step("Fill form", () -> {
-                practiceFormPage.setFirstName("Alex")
-                        .setLastName("Ivanov")
-                        .setGender("Male")
-                        .setUserPhone("1234567890")
-                        .submitForm();
-            });
-            step("Verify results", () -> {
-                practiceFormPage.verifyResult("Student Name", "Alex Ivanov")
-                        .verifyResult("Gender", "Male")
-                        .verifyResult("Mobile", "1234567890");
-            });
-            }
+        });
+        step("Fill form", () -> {
+            practiceFormPage.setFirstName("Alex")
+                    .setLastName("Ivanov")
+                    .setGender("Male")
+                    .setUserPhone("1234567890")
+                    .submitForm();
+        });
+        step("Verify results", () -> {
+            practiceFormPage.verifyResult("Student Name", "Alex Ivanov")
+                    .verifyResult("Gender", "Male")
+                    .verifyResult("Mobile", "1234567890");
+        });
+    }
 
-        @Test
-        @Tag("demoqa")
-        void invalidMobileNumberTest () {
-            step("Open form", () -> {
-                practiceFormPage.openPage()
-                        .removeBanner();
-            });
-            step("Fill form", () -> {
-                practiceFormPage.setFirstName("Alex")
-                        .setLastName("Ivanov")
-                        .setGender("Male")
-                        .setUserPhone("123")
-                        .submitForm();
-            });
-            step("Verify results", () -> {
-                practiceFormPage.verifyResultForNegativeTest();
-            });
-            }
-        }
+    @Test
+   // @Tag("demoqa")
+    void invalidMobileNumberTest () {
+        step("Open form", () -> {
+            practiceFormPage.openPage()
+                    .removeBanner();
+        });
+        step("Fill form", () -> {
+            practiceFormPage.setFirstName("Alex")
+                    .setLastName("Ivanov")
+                    .setGender("Male")
+                    .setUserPhone("123")
+                    .submitForm();
+        });
+        step("Verify results", () -> {
+            practiceFormPage.verifyResultForNegativeTest();
+        });
+    }
+}
